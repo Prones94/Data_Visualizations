@@ -36,17 +36,24 @@ function sortAge(){
 }
 
 function sortGender() {
-  data.sort((a) => {
-    a.fields.sex === 'female' ? -1 : 1
+  data.sort((a,b) => {
+    if (a.fields.sex < b.fields.sex) {
+      return 1
+    } else if (a.fields.sex > b.fields.sex) {
+      return 1
+    }
+    return 0
   })
 }
 
 function sortSurvived() {
   data.sort((a,b) => {
-    if (a.fields.survived === 'Yes') {
+    if (a.fields.survived < b.fields.survived) {
       return -1
+    } else if (a.fields.survived > b.fields.survived){
+      return 1
     }
-    return 1
+    return 0
   })
 
 }
